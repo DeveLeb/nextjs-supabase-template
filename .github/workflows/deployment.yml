@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Building image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/develeb-template:${{ github.sha }}, ${{ secrets.DOCKER_USERNAME }}/develeb-template:latest
+
+      - name: Google Auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Deploy To Cloud
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: develeb-template
+          region: europe-west1
+          image: docker.io/${{ secrets.DOCKER_USERNAME }}/develeb-template:latest

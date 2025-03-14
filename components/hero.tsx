@@ -1,9 +1,11 @@
+import Image from "next/image";
 import NextLogo from "./next-logo";
 import SupabaseLogo from "./supabase-logo";
 
 export default function Header() {
   return (
     <div className="flex flex-col gap-16 items-center">
+      <Image alt="Develeb Logo" src="/logo.png" width={150} height={150} />
       <div className="flex gap-8 justify-center items-center">
         <a
           href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
@@ -17,7 +19,6 @@ export default function Header() {
           <NextLogo />
         </a>
       </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
       <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
         The fastest way to build apps with{" "}
         <a
