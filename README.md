@@ -61,6 +61,25 @@ Follow these steps to set up and run the project locally.
    The app should now be running at [localhost:3000](http://localhost:3000/).
 6. To customize the UI, delete `components.json` and follow the [shadcn/ui installation guide](https://ui.shadcn.com/docs/installation/next).
 
+## Auth / Email Configuration
+
+To set up email authentication, update your supabase auth/url-configuration settings as follows:
+
+- **SITE_URL:**
+
+  - For local development: `http://localhost:3000/`
+  - For production: Replace with your live domain (e.g., `https://yourdomain.com`)
+
+- **REDIRECT_URLS:**
+  - For local development: `http://localhost:3000/**` (adjust as needed)
+  - For production: Update to the appropriate URL on your live domain
+
+The confirmation email link will be generated using this template:
+
+```bash
+{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next={{ .RedirectTo }}
+```
+
 ## Deploying to Vercel
 
 This Next.js application can be deployed seamlessly to Vercel. To deploy:
