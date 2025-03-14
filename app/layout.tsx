@@ -1,10 +1,10 @@
-import DeployButton from "@/components/deploy-button";
 import HeaderAuth from "@/components/header-auth";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Link from "next/link";
 import "./globals.css";
+import Image from "next/image";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -40,6 +40,12 @@ export default function RootLayout({
               <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
                 <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
                   <div className="flex gap-5 items-center font-semibold">
+                    <Image
+                      alt="Develeb Logo"
+                      src="/logo.png"
+                      width={50}
+                      height={50}
+                    />
                     <Link href={"/"}>Develeb - Next.js Supabase Starter</Link>
                   </div>
                   <HeaderAuth />
@@ -53,7 +59,7 @@ export default function RootLayout({
                 <p>
                   Powered by{" "}
                   <a
-                    href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
+                    href="https://develeb.org"
                     target="_blank"
                     className="font-bold hover:underline"
                     rel="noreferrer"

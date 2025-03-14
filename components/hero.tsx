@@ -1,11 +1,10 @@
-import Image from "next/image";
 import NextLogo from "./next-logo";
 import SupabaseLogo from "./supabase-logo";
+import { Button } from "./ui/button";
 
 export default function Header() {
   return (
     <div className="flex flex-col gap-16 items-center">
-      <Image alt="Develeb Logo" src="/logo.png" width={150} height={150} />
       <div className="flex gap-8 justify-center items-center">
         <a
           href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
@@ -39,7 +38,6 @@ export default function Header() {
           Next.js
         </a>
       </p>
-      <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
     </div>
   );
 }

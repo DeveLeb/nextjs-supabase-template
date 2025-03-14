@@ -3,8 +3,12 @@ import { InfoIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 import { createNote, getUserNotes, deleteNote } from "../actions";
 import { SubmitButton } from "@/components/submit-button";
+import { FormMessage, Message } from "@/components/form-message";
 
-export default async function ProtectedPage() {
+export default async function ProtectedPage(props: {
+  searchParams: Promise<Message>;
+}) {
+  const searchParams = await props.searchParams;
   const supabase = await createClient();
 
   const {
@@ -58,6 +62,7 @@ export default async function ProtectedPage() {
                 Delete
               </SubmitButton>
             </form>
+            <FormMessage message={searchParams} />
           </div>
         ))}
       </div>
