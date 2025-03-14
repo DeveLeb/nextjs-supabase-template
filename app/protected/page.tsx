@@ -23,6 +23,7 @@ export default async function ProtectedPage(props: {
 
   return (
     <div className="flex-1 w-full flex flex-col gap-12">
+      {/* Info Message */}
       <div className="w-full">
         <div className="bg-accent text-sm p-3 px-5 rounded-md text-foreground flex gap-3 items-center">
           <InfoIcon size="16" strokeWidth={2} />
@@ -30,8 +31,14 @@ export default async function ProtectedPage(props: {
           user
         </div>
       </div>
+
+      {/* Note Creation Form */}
       <form method="post" className="w-full flex flex-col gap-3">
-        <input name="title" />
+        <input
+          name="title"
+          placeholder="Note Title"
+          className="p-2 border rounded-md"
+        />
         <textarea
           name="description"
           placeholder="Enter your note"
@@ -40,16 +47,18 @@ export default async function ProtectedPage(props: {
         <SubmitButton
           formAction={createNote}
           type="submit"
-          className="p-2 bg-blue-500 text-white rounded-md"
+          className="p-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
         >
           Create Note
         </SubmitButton>
       </form>
+
+      {/* Notes List */}
       <div className="w-full flex flex-col gap-3">
         {notes?.map((note) => (
           <div
             key={note.id}
-            className="p-2 border rounded-md flex justify-between items-center"
+            className="p-4 border rounded-md shadow-sm  flex justify-between items-center"
           >
             <span>{note.description}</span>
             <form method="post" className="inline">
@@ -62,7 +71,6 @@ export default async function ProtectedPage(props: {
                 Delete
               </SubmitButton>
             </form>
-            <FormMessage message={searchParams} />
           </div>
         ))}
       </div>
