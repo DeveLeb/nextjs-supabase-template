@@ -1,219 +1,90 @@
-<a id="readme-top"></a>
+# Develeb Full Stack App Template
 
 <div align="center">
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-</div>
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/DeveLeb/Develeb-Platform">
-    <img src="docs/logo.png" alt="Logo" width="200" height="200">
+  <a href="https://github.com/DeveLeb/nextjs-supabase-template">
+    <img src="public/logo.png" alt="Logo" width="200" height="200">
   </a>
-  <h3 align="center">Develeb Fullstack App Template</h3>
+  <h3 align="center">Develeb Full Stack App Template</h3>
   <p align="center">
-    Built with Next.js, Supabase, and Deployed on Google Cloud.
+    Built with Next.js, Supabase, and deployed on Vercel & Google Cloud.
     <br />
-    <a href="https://develeb.github.io/Develeb-Platform/"><strong>Explore the api docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/DeveLeb/Develeb-Platform/">View Project</a>
+    <a href="https://github.com/DeveLeb/nextjs-supabase-template">View Project</a>
     ·
-    <a href="https://github.com/DeveLeb/Develeb-Platform/issues/new?labels=bug&template=bug-report.md">Report Bug</a>
+    <a href="https://github.com/DeveLeb/nextjs-supabase-template/issues/new?labels=bug">Report Bug</a>
     ·
-    <a href="https://github.com/DeveLeb/Develeb-Platform/issues/new?labels=enhancement&template=feature-request.md">Request Feature</a>
+    <a href="https://github.com/DeveLeb/nextjs-supabase-template/issues/new?labels=enhancement">Request Feature</a>
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-
 ## About The Project
 
-This platform will be a comprehensive portal into all things tech in Lebanon—jobs, events, resources, companies and more.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+This template provides a production-ready setup for full-stack applications using Next.js and Supabase.
 
 ### Built With
 
-<div align="center">
-
-[![Next][Next.js]][Next-url]
-[![Node][Node.js]][Node-url]
-[![Express][Express.js]][Express-url]
-[![Lerna][Lerna.js]][Lerna-url]
-[![Tailwind][Tailwind.css]][Tailwind-url]
-
-</div>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Follow these steps to set up and run the project locally.
 
 ### Prerequisites
 
+- [Supabase Account](https://supabase.com/dashboard/sign-up)
+- Node.js 18.18 or later
+- [Vercel Account](https://vercel.com/signup)
+
 ### Installation
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+1. Create a Supabase project via the [Supabase dashboard](https://database.new)
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/DeveLeb/nextjs-supabase-template.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd nextjs-supabase-template
+   ```
+4. Rename `.env.example` to `.env.local` and update:
+   ```env
+   SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
+   SUPABASE_ANON_KEY=[INSERT SUPABASE ANON KEY]
+   ```
+   Find these in your [Supabase project API settings](https://app.supabase.com/project/_/settings/api).
+5. Install dependencies and start the development server:
+   ```bash
+   npm install
+   npm run dev
+   ```
+   The app should now be running at [localhost:3000](http://localhost:3000/).
+6. To customize the UI, delete `components.json` and follow the [shadcn/ui installation guide](https://ui.shadcn.com/docs/installation/next).
 
-<!-- ROADMAP -->
+## Deploying to Vercel
 
-## Roadmap
+This Next.js application can be deployed seamlessly to Vercel. To deploy:
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
+1. **Connect Your Repository:** Log in to [Vercel](https://vercel.com/) and import your GitHub repository.
+2. **Configure Environment Variables:** In your Vercel project settings, add the following environment variables:
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+3. **Deploy:** Vercel will automatically build and deploy your application. For more details, refer to the [Vercel Documentation for Next.js](https://vercel.com/docs/concepts/frameworks/next.js).
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+We welcome contributions! To contribute:
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -m 'Add new feature'`)
+4. Push to your branch (`git push origin feature/new-feature`)
+5. Open a pull request
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for details.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Contact
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/DeveLeb/Develeb-Platform/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/DeveLeb/Develeb-Platform.svg?style=for-the-badge
-[forks-url]: https://github.com/DeveLeb/Develeb-Platform/network/members
-[stars-shield]: https://img.shields.io/github/stars/DeveLeb/Develeb-Platform.svg?style=for-the-badge
-[stars-url]: https://github.com/DeveLeb/Develeb-Platform/stargazers
-[issues-shield]: https://img.shields.io/github/issues/DeveLeb/Develeb-Platform.svg?style=for-the-badge
-[issues-url]: https://github.com/DeveLeb/Develeb-Platform/issues
-[license-shield]: https://img.shields.io/github/license/DeveLeb/Develeb-Platform.svg?style=for-the-badge
-[license-url]: https://github.com/DeveLeb/Develeb-Platform/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/company/develeb/
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[Node.js]: https://img.shields.io/badge/node.js-000000?style=for-the-badge&logo=nodedotjs&logoColor=white
-[Node-url]: https://nodejs.org/
-[Express.js]: https://img.shields.io/badge/express.js-000000?style=for-the-badge&logo=expressdotjs&logoColor=white
-[Express-url]: https://expressjs.com/
-[Lerna.js]: https://img.shields.io/badge/lerna.js-000000?style=for-the-badge&logo=lernasdotjs&logoColor=white
-[Lerna-url]: https://lerna.js.org/
-[Tailwind.css]: https://img.shields.io/badge/tailwind.js-000000?style=for-the-badge&logo=tailwinddotjs&logoColor=white
-[Tailwind-url]: https://tailwindcss.com/
-
-## Features
-
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
-
-## Clone and run locally
-
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
-
-2. Create a Next.js app using the Supabase Starter template npx command
-
-   ```bash
-   npx create-next-app --example with-supabase with-supabase-app
-   ```
-
-   ```bash
-   yarn create next-app --example with-supabase with-supabase-app
-   ```
-
-   ```bash
-   pnpm create next-app --example with-supabase with-supabase-app
-   ```
-
-3. Use `cd` to change into the app's directory
-
-   ```bash
-   cd with-supabase-app
-   ```
-
-4. Rename `.env.example` to `.env.local` and update the following:
-
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
-
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
-
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
-
-## Feedback and issues
-
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
-
-## More Supabase examples
-
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+For inquiries, visit our [GitHub repository](https://github.com/DeveLeb/nextjs-supabase-template) or connect on [LinkedIn](https://www.linkedin.com/company/develeb/).
