@@ -132,3 +132,43 @@ export const signOutAction = async () => {
   await supabase.auth.signOut();
   return redirect("/sign-in");
 };
+
+export const createNote = async (formData: FormData) => {
+  const title = formData.get("title")?.toString();
+  const description = formData.get("description")?.toString();
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (user === null) {
+    return encodedRedirect(
+      "error",
+      "/sign-in",
+      "You must be signed in to create a note"
+    );
+  }
+  await supabase
+    .from("notes")
+    .insert([{ title, description, user_id: user.id }]);
+  return encodedRedirect("success", "/protected", "Note created");
+};
+
+export const getUserNotes = async (id: string) => {
+  const supabase = await createClient();
+  const { data: notes, error } = await supabase
+    .from("notes")
+    .select("*")
+    .eq("user_id", id);
+  return notes;
+};
+
+export const deleteNote = async (formData: FormData) => {
+  const supabase = await createClient();
+  const noteId = formData.get("noteId")?.toString();
+  const { error } = await supabase.from("notes").delete().eq("id", noteId);
+
+  if (error) {
+    return encodedRedirect("error", "/protected", "Could not delete note");
+  }
+  return encodedRedirect("success", "/protected", "Note deleted");
+};
